@@ -84,6 +84,7 @@ func CompleteTask(id int) {
 func DeleteTask(id int) {
 	panic("unimplemented")
 
+	
 	found := false
 	newTasks := make([]Task, 0, len(tasks)) // 新しいスライスを作る
 	tasks, err := loadTasks()
