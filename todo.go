@@ -52,6 +52,7 @@ func nextID(tasks []Task) int {
 
 func AddTask(title string) {
 	tasks, _ := loadTasks()
+	//e
 
 	newTask := Task{
         ID:    nextID(tasks),
