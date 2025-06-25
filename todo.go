@@ -58,7 +58,6 @@ func ListTasks() {
 }
 
 func CompleteTask(id int) {
-	panic("unimplemented")
 	found := false
 	tasks, err := loadTasks()
 
@@ -82,7 +81,6 @@ func CompleteTask(id int) {
 }
 
 func DeleteTask(id int) {
-	
 	found := false
 	newTasks := make([]Task, 0, len(tasks)) // 新しいスライスを作る
 	tasks, err := loadTasks()
