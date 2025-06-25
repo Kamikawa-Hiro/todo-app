@@ -88,6 +88,7 @@ func ListTasks() {
 }
 
 func CompleteTask(id int) {
+	
 	found := false
 	tasks, err := loadTasks()
 
