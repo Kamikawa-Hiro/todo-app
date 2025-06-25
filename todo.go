@@ -85,9 +85,51 @@ func ListTasks() {
 }
 
 func CompleteTask(id int) {
-	panic("unimplemented")
+	
+	found := false
+	tasks, err := loadTasks()
+
+	for i := range tasks {
+		if tasks[i].ID == id {
+			tasks[i].Done = true
+			found = true
+			break // 見つけたらループ終了
+		}
+	}
+	if !found {
+		fmt.Println("task not found")
+	}
+
+	err = saveTasks(tasks)
+	if err != nil {
+		fmt.Println("Error saving tasks:", err)
+	} else {
+		fmt.Println("Tasks saved successfully!")
+	}
 }
 
 func DeleteTask(id int) {
-	panic("unimplemented")
+	found := false
+	tasks, err := loadTasks()
+	newTasks := make([]Task, 0, len(tasks)) // 新しいスライスを作る
+	
+	
+	for _, task := range tasks {
+		if task.ID == id {
+			found = true
+			continue // この task はスキップ（削除）
+		}
+		newTasks = append(newTasks, task)
+	}
+
+	if !found {
+		fmt.Println("task not found")
+	}
+
+	err = saveTasks(newTasks)
+	if err != nil {
+		fmt.Println("Error saving tasks:", err)
+	} else {
+		fmt.Println("Tasks saved successfully!")
+	}
 }
