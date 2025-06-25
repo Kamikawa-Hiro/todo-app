@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"os"
 	"fmt"
-	"errors"
 )
 
 type Task struct {
@@ -89,6 +88,7 @@ func ListTasks() {
 }
 
 func CompleteTask(id int) {
+	
 	found := false
 	tasks, err := loadTasks()
 
