@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"os"
 	"fmt"
+	"errors"
 )
 
 type Task struct {
@@ -112,8 +113,9 @@ func CompleteTask(id int) {
 
 func DeleteTask(id int) {
 	found := false
-	newTasks := make([]Task, 0, len(tasks)) // 新しいスライスを作る
 	tasks, err := loadTasks()
+	newTasks := make([]Task, 0, len(tasks)) // 新しいスライスを作る
+	
 	
 	for _, task := range tasks {
 		if task.ID == id {
