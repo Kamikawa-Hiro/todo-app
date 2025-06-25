@@ -100,7 +100,7 @@ func CompleteTask(id int) {
 		}
 	}
 	if !found {
-		return errors.New("task not found")
+		fmt.Println("task not found")
 	}
 
 	err = saveTasks(tasks)
@@ -126,7 +126,7 @@ func DeleteTask(id int) {
 	}
 
 	if !found {
-		return tasks, errors.New("task not found")
+		fmt.Println("task not found")
 	}
 
 	err = saveTasks(newTasks)
