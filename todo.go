@@ -51,10 +51,8 @@ func nextID(tasks []Task) int {
 }
 
 func AddTask(title string) {
-	tasks, err := loadTasks()
-	if err != nil {
-		fmt.Println("Error")
-	}
+	tasks, _ := loadTasks()
+	//e
 
 	newTask := Task{
         ID:    nextID(tasks),
