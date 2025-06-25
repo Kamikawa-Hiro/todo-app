@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"os"
 	"fmt"
-	"errors"
 )
 
 type Task struct {
