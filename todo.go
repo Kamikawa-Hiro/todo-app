@@ -92,7 +92,7 @@ func CompleteTask(id int) {
 	tasks, err := loadTasks()
 
 	for i := range tasks {
-		if tasks[i].ID == targetID {
+		if tasks[i].ID == id {
 			tasks[i].Done = true
 			found = true
 			break // 見つけたらループ終了
@@ -102,7 +102,7 @@ func CompleteTask(id int) {
 		return errors.New("task not found")
 	}
 
-	err := saveTasks(tasks)
+	err = saveTasks(tasks)
 	if err != nil {
 		fmt.Println("Error saving tasks:", err)
 	} else {
@@ -116,7 +116,7 @@ func DeleteTask(id int) {
 	tasks, err := loadTasks()
 	
 	for _, task := range tasks {
-		if task.ID == targetID {
+		if task.ID == id {
 			found = true
 			continue // この task はスキップ（削除）
 		}
@@ -127,7 +127,7 @@ func DeleteTask(id int) {
 		return tasks, errors.New("task not found")
 	}
 
-	err := saveTasks(newTasks)
+	err = saveTasks(newTasks)
 	if err != nil {
 		fmt.Println("Error saving tasks:", err)
 	} else {
